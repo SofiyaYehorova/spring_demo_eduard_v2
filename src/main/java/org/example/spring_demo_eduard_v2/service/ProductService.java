@@ -10,7 +10,7 @@ import org.example.spring_demo_eduard_v2.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +18,7 @@ import java.util.Optional;
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private final ProductCreationNotifier productCreationNotifier;
 
     public List<ProductDto> getProducts() {
         List<Product> products = productRepository.findAll();
@@ -28,8 +29,13 @@ public class ProductService {
                 .toList();
     }
     public ProductDto createProduct(ProductDto productDto){
+        log.info("Creating product: {}", productDto);
         Product product = productMapper.toEntity(productDto);
         Product savedProduct = productRepository.save(product);
-        return productMapper.toDto(savedProduct);
+        ProductDto createdProduct = productMapper.toDto(savedProduct);
+
+        productCreationNotifier.notify(createdProduct);
+
+        return createdProduct;
     }
 }
