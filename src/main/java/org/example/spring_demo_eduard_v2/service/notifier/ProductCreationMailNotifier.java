@@ -1,6 +1,5 @@
-package org.example.spring_demo_eduard_v2.service;
+package org.example.spring_demo_eduard_v2.service.notifier;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.spring_demo_eduard_v2.dto.ProductDto;

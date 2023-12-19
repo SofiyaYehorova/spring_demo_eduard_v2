@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.example.spring_demo_eduard_v2.dto.ProductDto;
+import org.example.spring_demo_eduard_v2.dto.ReviewDto;
 import org.example.spring_demo_eduard_v2.service.DataStorageService;
 import org.example.spring_demo_eduard_v2.service.ProductService;
 import org.example.spring_demo_eduard_v2.view.View;
@@ -44,10 +45,16 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProducts());
     }
 
-    //    @GetMapping("/products/{name}")
-//    public ResponseEntity<Product> getProduct(@PathVariable String name) {
-//        return ResponseEntity.of(productService.getProduct(name));
-//    }
+    @GetMapping("/products/{productId}/reviews")
+    public ResponseEntity<List<ReviewDto>> getProduct(@PathVariable Integer productId) {
+        return ResponseEntity.ok(productService.getReviews(productId));
+    }
+
+    @PostMapping("/products/{productId}/reviews")
+    public ResponseEntity<ReviewDto> getProduct(@PathVariable Integer productId, @RequestBody ReviewDto reviewDto) {
+        return ResponseEntity.ok(productService.addReview(productId, reviewDto));
+    }
+
     @PostMapping("/products")
     public ResponseEntity<ProductDto> createProduct(@RequestBody @Valid ProductDto productDto) {
         ProductDto product = productService.createProduct(productDto);
