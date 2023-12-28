@@ -1,4 +1,4 @@
-package org.example.spring_demo_eduard_v2.service.notifier;
+package org.example.spring_demo_eduard_v2.services.notifier;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

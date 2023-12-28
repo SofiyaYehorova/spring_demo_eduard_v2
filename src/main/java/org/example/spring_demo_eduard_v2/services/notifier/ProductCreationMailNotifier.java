@@ -1,4 +1,4 @@
-package org.example.spring_demo_eduard_v2.service.notifier;
+package org.example.spring_demo_eduard_v2.services.notifier;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

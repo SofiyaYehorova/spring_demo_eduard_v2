@@ -7,10 +7,11 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.example.spring_demo_eduard_v2.dto.ProductDto;
 import org.example.spring_demo_eduard_v2.dto.ReviewDto;
-import org.example.spring_demo_eduard_v2.service.DataStorageService;
-import org.example.spring_demo_eduard_v2.service.ProductService;
+import org.example.spring_demo_eduard_v2.services.DataStorageService;
+import org.example.spring_demo_eduard_v2.services.ProductService;
 import org.example.spring_demo_eduard_v2.view.View;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -55,6 +56,10 @@ public class ProductController {
         return ResponseEntity.ok(productService.addReview(productId, reviewDto));
     }
 
+    @Secured("ROLE_SELLER")
+//    @RolesAllowed({"SELLER", "ADMIN"})
+//    @PreAuthorize("hasRole(\"SELLER\")") // - SpEL - Spring Expression Language
+//    @PreAuthorize("hasRole(\"SELLER\")") /* перевіряє чи має право даний продавець на якусьь дію*/
     @PostMapping("/products")
     public ResponseEntity<ProductDto> createProduct(@RequestBody @Valid ProductDto productDto) {
         ProductDto product = productService.createProduct(productDto);

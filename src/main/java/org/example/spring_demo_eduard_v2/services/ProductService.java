@@ -1,4 +1,4 @@
-package org.example.spring_demo_eduard_v2.service;
+package org.example.spring_demo_eduard_v2.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import org.example.spring_demo_eduard_v2.mapper.ProductMapper;
 import org.example.spring_demo_eduard_v2.mapper.ReviewMapper;
 import org.example.spring_demo_eduard_v2.repository.ProductRepository;
 import org.example.spring_demo_eduard_v2.repository.ProductReviewRepository;
-import org.example.spring_demo_eduard_v2.service.notifier.ProductCreationNotifier;
+import org.example.spring_demo_eduard_v2.services.notifier.ProductCreationNotifier;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +40,7 @@ public class ProductService {
                 .map(productMapper::toDto)
                 .toList();
     }
+
     public ProductDto createProduct(ProductDto productDto){
         log.info("Creating product: {}", productDto);
         Product product = productMapper.toEntity(productDto);

@@ -3,8 +3,8 @@ package org.example.spring_demo_eduard_v2.job;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.spring_demo_eduard_v2.dto.ProductDto;
-import org.example.spring_demo_eduard_v2.service.DataStorageService;
-import org.example.spring_demo_eduard_v2.service.ProductService;
+import org.example.spring_demo_eduard_v2.services.DataStorageService;
+import org.example.spring_demo_eduard_v2.services.ProductService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 

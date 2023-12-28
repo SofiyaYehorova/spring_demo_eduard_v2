@@ -1,10 +1,9 @@
-package org.example.spring_demo_eduard_v2.service;
+package org.example.spring_demo_eduard_v2.services;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
 @Service
 public class DataStorageService {
